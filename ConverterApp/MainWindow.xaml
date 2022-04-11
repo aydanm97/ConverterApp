@@ -1,0 +1,74 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConverterApp"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="ConverterApp.MainWindow"
+    x:Name="myMainWindow"
+        mc:Ignorable="d"
+    Icon="/img/file-1453.png"
+        Title="Aydan's PDF Converter" Height="250" Width="650" >
+    <Grid>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1" Content="Aydan's PDF Converter"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               FontWeight="Bold"
+               FontSize="18"
+               Foreground="IndianRed"
+               Height="auto"
+               Width="auto"
+               Margin="19,31,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2"
+               />
+        <syncfusion:ButtonAdv Content="Select File" SmallIcon="/img/folder-1486.png" 
+                              HorizontalAlignment="Left" Height="62" Label="Select File" Grid.Row="2" Margin="29,45,0,0"
+                              VerticalAlignment="Top" Width="104" Background="IndianRed" Foreground="White"
+                              Click="SelectFile_Click" Grid.RowSpan="2"/>
+
+        <StackPanel
+            x:Name="FileDropPanel" 
+            AllowDrop="True" 
+            Grid.Row="3"
+            Margin="154,12,204,64" 
+            Height="70"
+            Width="auto"
+            Background="LightGray"
+            Drop="FileDropPanel_Drop" Grid.ColumnSpan="3"
+            >
+            <Label HorizontalAlignment="Center" Content="Drag and Drop your files here"></Label>
+            <TextBox x:Name="pathTextBox" Grid.Column="1" Grid.Row="2" TextWrapping="NoWrap" AcceptsReturn="False"
+                 Margin="10,10,10,10"/>
+        </StackPanel>
+        <syncfusion:ComboBoxAdv x:Name="conversionDropDown" Grid.Column="2" AllowMultiSelect="False" 
+                                Grid.Row="3" DefaultText="Select" Foreground="White" Background="IndianRed" Margin="62,12,64,72">
+            <syncfusion:ComboBoxItemAdv Content="Doc to PDF"/>
+            <syncfusion:ComboBoxItemAdv Content="PDF to Doc"/>
+            <syncfusion:ComboBoxItemAdv Content="PNG to PDF"/>
+
+        </syncfusion:ComboBoxAdv>
+
+        <syncfusion:ButtonAdv Content="Convert" SmallIcon="/img/convert-3217 (3).png" 
+                               Height="35" Label="Convert" Grid.Row="3" Grid.Column='1' HorizontalAlignment="Left"
+                              VerticalAlignment="Top" Width="142" Background="IndianRed" Foreground="White"
+                              Click="ConvertButton_Click" Margin="54,103,0,0"
+                              />
+
+
+
+
+    </Grid>
+</Window>
